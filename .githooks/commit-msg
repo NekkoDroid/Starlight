@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Make sure that the commit message follows "Conventional Commits"
+# For more info visit: https://www.conventionalcommits.org/en/v1.0.0
+npm install --quiet
+npx commitlint -e "${1}"

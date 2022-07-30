@@ -1,0 +1,24 @@
+{
+  "name": "starlight",
+  "version": "0.1.1",
+  "description": "Cross-platform real-time 3D game engine",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NekkoDroid/Starlight.git"
+  },
+  "author": "NekkoDroid",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/NekkoDroid/Starlight/issues"
+  },
+  "homepage": "https://github.com/NekkoDroid/Starlight#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  }
+}
