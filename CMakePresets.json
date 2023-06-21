@@ -1,0 +1,49 @@
+{
+	"version": 6,
+	"cmakeMinimumRequired": {
+		"major": 3,
+		"minor": 25
+	},
+	"configurePresets": [
+		{
+			"name": "Compile",
+			"generator": "Ninja Multi-Config",
+			"binaryDir": "${sourceDir}/Output/Build",
+			"installDir": "${sourceDir}/Output/Install",
+			"cacheVariables": {
+				"CMAKE_CXX_COMPILER": {
+					"type": "STRING",
+					"value": "clang++"
+				},
+				"CMAKE_CXX_EXTENSIONS": {
+					"type": "BOOL",
+					"value": "FALSE"
+				}
+			}
+		},
+		{
+			"name": "Develop",
+			"inherits": "Compile",
+			"toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake",
+			"condition": {
+				"type": "notEquals",
+				"lhs": "$env{VCPKG_ROOT}",
+				"rhs": ""
+			},
+			"cacheVariables": {
+				"CMAKE_CXX_FLAGS_INIT": {
+					"type": "STRING",
+					"value": "-Wall -Wextra -Wpedantic -Wdocumentation -Wdocumentation-pedantic"
+				},
+				"CMAKE_COMPILE_WARNING_AS_ERROR": {
+					"type": "BOOL",
+					"value": "TRUE"
+				},
+				"CMAKE_CXX_CLANG_TIDY": {
+					"type": "STRING",
+					"value": "clang-tidy"
+				}
+			}
+		}
+	]
+}

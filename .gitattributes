@@ -1,0 +1,42 @@
+# Created by https://www.richie-bendall.ml/gitattributes-generator
+# Files found at https://github.com/alexkaratarakis/gitattributes
+
+# Common settings that generally should always be used with your language specific settings
+
+# Auto detect text files and perform LF normalization
+*          text=auto
+
+#
+# The above will handle all files NOT found below
+#
+
+# Sources
+*.cpp       text diff=cpp
+*.hpp       text diff=cpp
+
+# Documents
+*.md       text diff=markdown
+*.txt      text
+*.cmake    text
+
+# Scripts
+*.bash     text eol=lf
+*.fish     text eol=lf
+*.sh       text eol=lf
+*.zsh      text eol=lf
+# These are explicitly windows files and should use crlf
+*.bat      text eol=crlf
+*.cmd      text eol=crlf
+*.ps1      text eol=crlf
+
+# Serialization
+*.json     text
+*.jsonc    text
+*.json5    text
+*.toml     text
+*.xml      text
+*.yaml     text
+*.yml      text
+
+# Text files where line endings should be preserved
+*.patch    -text

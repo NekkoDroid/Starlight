@@ -1,0 +1,27 @@
+# Created by https://www.toptal.com/developers/gitignore/api/diff,patch
+# Edit at https://www.toptal.com/developers/gitignore?templates=diff,patch
+#### MODIFIED ####
+
+### CMake ###
+
+# CMake files
+CMakeUserPresets.json
+
+# CMake output
+[Oo]utput/
+
+### Other stuff ###
+
+# User-specific files
+*.user
+
+# Visual Studio Code cache/options directory
+.vscode/
+
+# Visual Studio cache/options directory
+.vs/
+
+# JetBrains CLion cache/options directory
+.idea/
+
+# End of https://www.toptal.com/developers/gitignore/api/diff,patch
