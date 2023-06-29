@@ -9,6 +9,13 @@ add_library(${PROJECT_NAME}::${TARGET_NAME} ALIAS ${TARGET_NAME})
 
 target_compile_features(${TARGET_NAME} PUBLIC cxx_std_20)
 
+#=======================#
+#=====# Libraries #=====#
+#=======================#
+
+find_package(SDL2 REQUIRED)
+target_link_libraries(${TARGET_NAME} PRIVATE SDL2::SDL2 SDL2::SDL2main)
+
 #=====================#
 #=====# Sources #=====#
 #=====================#
