@@ -3,6 +3,7 @@
 include(CMakeFindDependencyMacro)
 
 find_dependency(SDL2)
+find_dependency(EnTT)
 
 include("${CMAKE_CURRENT_LIST_DIR}/LibraryTargets.cmake")
 

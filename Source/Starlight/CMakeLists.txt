@@ -16,6 +16,9 @@ target_compile_features(${TARGET_NAME} PUBLIC cxx_std_20)
 find_package(SDL2 REQUIRED)
 target_link_libraries(${TARGET_NAME} PRIVATE SDL2::SDL2 SDL2::SDL2main)
 
+find_package(EnTT REQUIRED)
+target_link_libraries(${TARGET_NAME} PUBLIC EnTT::EnTT)
+
 #=====================#
 #=====# Sources #=====#
 #=====================#
