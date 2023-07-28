@@ -2,6 +2,7 @@
 
 #include "Starlight/Platform/Main.hpp"
 #include "Starlight/Runtime/Entity.hpp"
+#include "Starlight/Runtime/System.hpp"
 
 namespace Star
 {
@@ -19,7 +20,16 @@ namespace Star
 		/// @return A reference to the entity manager.
 		[[nodiscard]] auto Entities() const -> const EntityManager&;
 
+		/// @brief Get the system manager.
+		/// @return A reference to the system manager.
+		[[nodiscard]] auto Systems() -> SystemManager&;
+
+		/// @brief Get the system manager.
+		/// @return A reference to the system manager.
+		[[nodiscard]] auto Systems() const -> const SystemManager&;
+
 	private:
 		EntityManager m_Entities{};
+		SystemManager m_Systems{};
 	};
 } //namespace Star
