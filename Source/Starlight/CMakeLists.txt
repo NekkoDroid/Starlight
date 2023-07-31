@@ -19,6 +19,9 @@ target_link_libraries(${TARGET_NAME} PRIVATE SDL2::SDL2 SDL2::SDL2main)
 find_package(EnTT REQUIRED)
 target_link_libraries(${TARGET_NAME} PUBLIC EnTT::EnTT)
 
+find_package(glm REQUIRED)
+target_link_libraries(${TARGET_NAME} PUBLIC glm::glm)
+
 #=====================#
 #=====# Sources #=====#
 #=====================#

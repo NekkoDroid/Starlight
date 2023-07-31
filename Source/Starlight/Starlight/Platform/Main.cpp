@@ -1,5 +1,7 @@
 #include "Main.hpp"
 
+#include "Starlight/Platform/Window.hpp"
+
 #include <SDL2/SDL.h>
 
 #include <cstdlib>
@@ -10,7 +12,7 @@ auto main(int argc, char* argv[]) -> int
 {
 	using namespace Star;
 
-	if (SDL_Init(SDL_INIT_EVENTS) < 0)
+	if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
 		NOOP; // TODO: Log[Fatal] {{SDL_Init}} failed: {SDL_GetError()}
 		return EXIT_FAILURE;
@@ -63,17 +65,46 @@ namespace Star
 
 	auto Main::ProcessEvents() -> bool
 	{
+		bool quitRequested{};
+
 		SDL_Event event{};
 		while (SDL_PollEvent(&event) == 1)
 		{
 			switch (event.type)
 			{
 			case SDL_QUIT:
-				return false;
+				quitRequested = true;
+				break;
+
+			case SDL_WINDOWEVENT:
+				Window::HandleEvent(event.window);
+				break;
+
+			case SDL_KEYUP:
+			case SDL_KEYDOWN:
+				Window::HandleEvent(event.key);
+				break;
+
+			case SDL_MOUSEBUTTONUP:
+			case SDL_MOUSEBUTTONDOWN:
+				Window::HandleEvent(event.button);
+				break;
+
+			case SDL_MOUSEMOTION:
+				Window::HandleEvent(event.motion);
+				break;
+
+			case SDL_MOUSEWHEEL:
+				Window::HandleEvent(event.wheel);
+				break;
+
+			case SDL_TEXTINPUT:
+				Window::HandleEvent(event.text);
+				break;
 			}
 		}
 
-		return true;
+		return !quitRequested;
 	}
 
 	auto Main::OnExitRequested() -> bool
